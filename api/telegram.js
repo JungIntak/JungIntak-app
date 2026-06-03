@@ -23,6 +23,10 @@ export default async function handler(req, res) {
       reply = "안녕! 봇 연결 성공입니다 ✅";
     }
 
+    if (text === "내아이디") {
+      reply = `당신의 chat_id는 ${chatId} 입니다.`;
+    }
+
     await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
       method: "POST",
       headers: {
